@@ -1,0 +1,17 @@
+{
+  "name": "user",
+  "version": "0.0.0",
+  "description": "User microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "seneca": "~0.7.1",
+    "bookshelf": "~0.8.2",
+    "knex": "~0.8.6",
+    "mysql": "~2.9.0"
+  }
+}
