@@ -13,6 +13,7 @@ var Hapi            = require('hapi'),
 
 //Application plugins
 var Vendors           = require('./routes/vendors');
+var Stores           = require('./routes/stores');
 
 //Plugin configurations
 var swaggerOptions = {
@@ -79,7 +80,14 @@ var pluginConf = [
         'tv' : tvOptions
     },
     {
-        './routes/vendors' : null
+        './routes/vendors' : [{
+            routes: { prefix: '/vendor' }
+        }]
+    },
+    {
+        './routes/stores' : [{
+            routes: { prefix: '/store' }
+        }]
     }
 ];
 

@@ -72,7 +72,7 @@ exports.register = function (server, options, next) {
 
                     request.auth.session.set(vendor);
                     return reply.redirect('/');
-                }
+                };
 
                 var message = '';
                 var vendor = null;
