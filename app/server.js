@@ -7,11 +7,14 @@ var Hapi            = require('hapi'),
     Tv              = require('tv'),
     Yar             = require('yar'),
     Chairo          = require('chairo'),
+    BearerTokenAuth = require('./plugins/access-token-auth'),
+    Glue            = require('glue'),
     _               = require('lodash-node');
 
-var server = new Hapi.Server();
-server.connection({ port: 3000 });
+//Application plugins
+var Users           = require('./routes/users');
 
+//Plugin configurations
 var swaggerOptions = {
     apiVersion: Pack.version
 };
@@ -49,44 +52,67 @@ var tvOptions = {
     endpoint : '/tv'
 };
 
+
 var pluginConf = [
     {
-        register : Inert
+        'chairo' : null
     },
     {
-        register : Vision
+        './plugins/access-token-auth' : null
     },
     {
-        register: HapiSwagger,
-        options: swaggerOptions
+        'inert' : null
     },
     {
-        register : Yar,
-        options : yarOptions
+        'vision' : null
     },
     {
-        register : Good,
-        options : goodOptions
+        'hapi-swagger' : swaggerOptions
     },
     {
-        register : Tv,
-        options : tvOptions
+        'yar' : yarOptions
     },
     {
-        register : Chairo
+        'good' : goodOptions
+    },
+    {
+        'tv' : tvOptions
+    },
+    {
+        './routes/users' : null
     }
 ];
 
-server.register(pluginConf, function (err) {
-    server.start(function() {
+var options = {
+    relativeTo: __dirname
+};
+
+var manifest = {
+    server : {
+
+    },
+    connections : [
+        {
+            port : 3000,
+            labels : ['api']
+        }
+    ],
+    plugins : pluginConf
+};
+
+Glue.compose(manifest, options, function (err, server) {
+
+    if (err) {
+        throw err;
+    }
+    server.start(function () {
 
         // Create Seneca client
         server.seneca.client();
 
         // Add any server.route() config here
         console.log('Server running at:', server.info.uri);
-
-        //Test seneca
-        server.seneca.act( 'role:user, cmd:get_by_id, id:1', console.log );
     });
 });
+
+

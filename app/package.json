@@ -17,7 +17,9 @@
     "lodash-node": "~3.10.1",
     "seneca": "~0.7.1",
     "chairo": "~0.2.0",
-    "good-http": "~5.1.0"
+    "good-http": "~5.1.0",
+    "hapi-auth-bearer-token": "~3.1.1",
+    "glue": "~2.3.0"
   },
   "devDependencies": {},
   "scripts": {

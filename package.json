@@ -6,6 +6,6 @@
     "start": "node ./app/server.js"
   },
   "dependencies": {
-
+    "boom": "~2.9.0"
   }
 }
