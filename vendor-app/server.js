@@ -1,13 +1,5 @@
 var Hapi            = require('hapi'),
-    Inert           = require('inert'),
-    Vision          = require('vision'),
-    HapiSwagger     = require('hapi-swagger'),
     Pack            = require('./package'),
-    Good            = require('good'),
-    Tv              = require('tv'),
-    Yar             = require('yar'),
-    Chairo          = require('chairo'),
-    BearerTokenAuth = require('./plugins/cookie-auth'),
     Glue            = require('glue'),
     _               = require('lodash-node');
 

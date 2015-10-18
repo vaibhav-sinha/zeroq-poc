@@ -1,13 +1,5 @@
 var Hapi            = require('hapi'),
-    Inert           = require('inert'),
-    Vision          = require('vision'),
-    HapiSwagger     = require('hapi-swagger'),
     Pack            = require('./package'),
-    Good            = require('good'),
-    Tv              = require('tv'),
-    Yar             = require('yar'),
-    Chairo          = require('chairo'),
-    BearerTokenAuth = require('./plugins/access-token-auth'),
     Glue            = require('glue'),
     _               = require('lodash-node');
 
@@ -52,10 +44,29 @@ var tvOptions = {
     endpoint : '/tv'
 };
 
+var chairoUserServiceOptions = {
+    seneca : {
+    },
+    plugin : {
+        decorateWithName : 'userService'
+    }
+};
+
+var chairoProductServiceOptions = {
+    seneca : {
+    },
+    plugin : {
+        decorateWithName : 'productService'
+    }
+};
+
 
 var pluginConf = [
     {
-        'chairo' : null
+        './plugins/seneca-plugin' : chairoUserServiceOptions
+    },
+    {
+        './plugins/seneca-plugin' : chairoProductServiceOptions
     },
     {
         './plugins/access-token-auth' : null
