@@ -11,9 +11,6 @@ var Hapi            = require('hapi'),
     Glue            = require('glue'),
     _               = require('lodash-node');
 
-//Application plugins
-var Vendors           = require('./routes/vendors');
-var Stores           = require('./routes/stores');
 
 //Plugin configurations
 var swaggerOptions = {
@@ -53,10 +50,29 @@ var tvOptions = {
     endpoint : '/tv'
 };
 
+var chairoUserServiceOptions = {
+    seneca : {
+    },
+    plugin : {
+        decorateWithName : 'userService'
+    }
+};
+
+var chairoProductServiceOptions = {
+    seneca : {
+    },
+    plugin : {
+        decorateWithName : 'productService'
+    }
+};
+
 
 var pluginConf = [
     {
-        'chairo' : null
+        './plugins/seneca-plugin' : chairoUserServiceOptions
+    },
+    {
+        './plugins/seneca-plugin' : chairoProductServiceOptions
     },
     {
         './plugins/cookie-auth' : null
@@ -88,6 +104,11 @@ var pluginConf = [
         './routes/stores' : [{
             routes: { prefix: '/store' }
         }]
+    },
+    {
+        './routes/products' : [{
+            routes: { prefix: '/product' }
+        }]
     }
 ];
 
@@ -116,7 +137,8 @@ Glue.compose(manifest, options, function (err, server) {
     server.start(function () {
 
         // Create Seneca client
-        server.seneca.client();
+        server.userService.client({port : 20101});
+        server.productService.client({port : 20102});
 
         // Add any server.route() config here
         console.log('Server running at:', server.info.uri);

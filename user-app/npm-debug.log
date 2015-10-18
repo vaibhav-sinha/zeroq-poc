@@ -1,0 +1,425 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.37
+4 verbose node symlink /usr/bin/node
+5 warn package.json app@0.0.0 No repository field.
+6 warn package.json app@0.0.0 No README data
+7 verbose readDependencies using package.json deps
+8 verbose install where, deps [ '/home/user-1/Documents/Work/zeroq/user-app',
+8 verbose install   [ 'hapi',
+8 verbose install     'good',
+8 verbose install     'good-console',
+8 verbose install     'good-file',
+8 verbose install     'hapi-swagger',
+8 verbose install     'inert',
+8 verbose install     'vision',
+8 verbose install     'yar',
+8 verbose install     'tv',
+8 verbose install     'lodash',
+8 verbose install     'lodash-node',
+8 verbose install     'seneca',
+8 verbose install     'chairo',
+8 verbose install     'good-http',
+8 verbose install     'hapi-auth-bearer-token',
+8 verbose install     'boom',
+8 verbose install     'glue' ] ]
+9 info preinstall app@0.0.0
+10 verbose readDependencies using package.json deps
+11 verbose cache add [ 'good-file@~5.1.0', null ]
+12 verbose cache add name=undefined spec="good-file@~5.1.0" args=["good-file@~5.1.0",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'good-file@~5.1.0',
+13 verbose parsed url   path: 'good-file@~5.1.0',
+13 verbose parsed url   href: 'good-file@~5.1.0' }
+14 verbose cache add [ 'hapi-swagger@~2.1.0', null ]
+15 verbose cache add name=undefined spec="hapi-swagger@~2.1.0" args=["hapi-swagger@~2.1.0",null]
+16 verbose parsed url { protocol: null,
+16 verbose parsed url   slashes: null,
+16 verbose parsed url   auth: null,
+16 verbose parsed url   host: null,
+16 verbose parsed url   port: null,
+16 verbose parsed url   hostname: null,
+16 verbose parsed url   hash: null,
+16 verbose parsed url   search: null,
+16 verbose parsed url   query: null,
+16 verbose parsed url   pathname: 'hapi-swagger@~2.1.0',
+16 verbose parsed url   path: 'hapi-swagger@~2.1.0',
+16 verbose parsed url   href: 'hapi-swagger@~2.1.0' }
+17 verbose already installed skipping inert@~3.1.0 /home/user-1/Documents/Work/zeroq/user-app
+18 verbose cache add name="good-file" spec="~5.1.0" args=["good-file","~5.1.0"]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: '~5.1.0',
+19 verbose parsed url   path: '~5.1.0',
+19 verbose parsed url   href: '~5.1.0' }
+20 verbose addNamed [ 'good-file', '~5.1.0' ]
+21 verbose addNamed [ null, '>=5.1.0-0 <5.2.0-0' ]
+22 verbose cache add name="hapi-swagger" spec="~2.1.0" args=["hapi-swagger","~2.1.0"]
+23 verbose parsed url { protocol: null,
+23 verbose parsed url   slashes: null,
+23 verbose parsed url   auth: null,
+23 verbose parsed url   host: null,
+23 verbose parsed url   port: null,
+23 verbose parsed url   hostname: null,
+23 verbose parsed url   hash: null,
+23 verbose parsed url   search: null,
+23 verbose parsed url   query: null,
+23 verbose parsed url   pathname: '~2.1.0',
+23 verbose parsed url   path: '~2.1.0',
+23 verbose parsed url   href: '~2.1.0' }
+24 verbose addNamed [ 'hapi-swagger', '~2.1.0' ]
+25 verbose addNamed [ null, '>=2.1.0-0 <2.2.0-0' ]
+26 verbose already installed skipping vision@~3.0.0 /home/user-1/Documents/Work/zeroq/user-app
+27 silly lockFile e0545084-good-file-5-1-0 good-file@~5.1.0
+28 verbose lock good-file@~5.1.0 /home/user-1/.npm/e0545084-good-file-5-1-0.lock
+29 silly lockFile c6c68bbf-hapi-swagger-2-1-0 hapi-swagger@~2.1.0
+30 verbose lock hapi-swagger@~2.1.0 /home/user-1/.npm/c6c68bbf-hapi-swagger-2-1-0.lock
+31 verbose cache add [ 'yar@~4.2.0', null ]
+32 verbose cache add name=undefined spec="yar@~4.2.0" args=["yar@~4.2.0",null]
+33 verbose parsed url { protocol: null,
+33 verbose parsed url   slashes: null,
+33 verbose parsed url   auth: null,
+33 verbose parsed url   host: null,
+33 verbose parsed url   port: null,
+33 verbose parsed url   hostname: null,
+33 verbose parsed url   hash: null,
+33 verbose parsed url   search: null,
+33 verbose parsed url   query: null,
+33 verbose parsed url   pathname: 'yar@~4.2.0',
+33 verbose parsed url   path: 'yar@~4.2.0',
+33 verbose parsed url   href: 'yar@~4.2.0' }
+34 verbose already installed skipping tv@~4.1.2 /home/user-1/Documents/Work/zeroq/user-app
+35 verbose cache add name="yar" spec="~4.2.0" args=["yar","~4.2.0"]
+36 verbose parsed url { protocol: null,
+36 verbose parsed url   slashes: null,
+36 verbose parsed url   auth: null,
+36 verbose parsed url   host: null,
+36 verbose parsed url   port: null,
+36 verbose parsed url   hostname: null,
+36 verbose parsed url   hash: null,
+36 verbose parsed url   search: null,
+36 verbose parsed url   query: null,
+36 verbose parsed url   pathname: '~4.2.0',
+36 verbose parsed url   path: '~4.2.0',
+36 verbose parsed url   href: '~4.2.0' }
+37 verbose addNamed [ 'yar', '~4.2.0' ]
+38 verbose addNamed [ null, '>=4.2.0-0 <4.3.0-0' ]
+39 silly lockFile b31c8d01-yar-4-2-0 yar@~4.2.0
+40 verbose lock yar@~4.2.0 /home/user-1/.npm/b31c8d01-yar-4-2-0.lock
+41 silly addNameRange { name: 'good-file',
+41 silly addNameRange   range: '>=5.1.0-0 <5.2.0-0',
+41 silly addNameRange   hasData: false }
+42 silly addNameRange { name: 'hapi-swagger',
+42 silly addNameRange   range: '>=2.1.0-0 <2.2.0-0',
+42 silly addNameRange   hasData: false }
+43 verbose already installed skipping lodash@~3.10.1 /home/user-1/Documents/Work/zeroq/user-app
+44 verbose already installed skipping lodash-node@~3.10.1 /home/user-1/Documents/Work/zeroq/user-app
+45 verbose request where is /good-file
+46 verbose request registry http://localhost:4873/
+47 verbose request id bb15c4c3f2b32ba3
+48 verbose url raw /good-file
+49 verbose url resolving [ 'http://localhost:4873/', './good-file' ]
+50 verbose url resolved http://localhost:4873/good-file
+51 verbose request where is http://localhost:4873/good-file
+52 info trying registry request attempt 1 at 16:08:54
+53 http GET http://localhost:4873/good-file
+54 verbose request where is /hapi-swagger
+55 verbose request registry http://localhost:4873/
+56 verbose url raw /hapi-swagger
+57 verbose url resolving [ 'http://localhost:4873/', './hapi-swagger' ]
+58 verbose url resolved http://localhost:4873/hapi-swagger
+59 verbose request where is http://localhost:4873/hapi-swagger
+60 info trying registry request attempt 1 at 16:08:54
+61 http GET http://localhost:4873/hapi-swagger
+62 verbose already installed skipping seneca@~0.7.1 /home/user-1/Documents/Work/zeroq/user-app
+63 verbose cache add [ 'chairo@~0.2.1', null ]
+64 verbose cache add name=undefined spec="chairo@~0.2.1" args=["chairo@~0.2.1",null]
+65 verbose parsed url { protocol: null,
+65 verbose parsed url   slashes: null,
+65 verbose parsed url   auth: null,
+65 verbose parsed url   host: null,
+65 verbose parsed url   port: null,
+65 verbose parsed url   hostname: null,
+65 verbose parsed url   hash: null,
+65 verbose parsed url   search: null,
+65 verbose parsed url   query: null,
+65 verbose parsed url   pathname: 'chairo@~0.2.1',
+65 verbose parsed url   path: 'chairo@~0.2.1',
+65 verbose parsed url   href: 'chairo@~0.2.1' }
+66 verbose already installed skipping good-http@~5.1.0 /home/user-1/Documents/Work/zeroq/user-app
+67 verbose already installed skipping hapi-auth-bearer-token@~3.1.1 /home/user-1/Documents/Work/zeroq/user-app
+68 verbose cache add [ 'boom@2.x.x', null ]
+69 verbose cache add name=undefined spec="boom@2.x.x" args=["boom@2.x.x",null]
+70 verbose parsed url { protocol: null,
+70 verbose parsed url   slashes: null,
+70 verbose parsed url   auth: null,
+70 verbose parsed url   host: null,
+70 verbose parsed url   port: null,
+70 verbose parsed url   hostname: null,
+70 verbose parsed url   hash: null,
+70 verbose parsed url   search: null,
+70 verbose parsed url   query: null,
+70 verbose parsed url   pathname: 'boom@2.x.x',
+70 verbose parsed url   path: 'boom@2.x.x',
+70 verbose parsed url   href: 'boom@2.x.x' }
+71 verbose already installed skipping glue@~2.3.0 /home/user-1/Documents/Work/zeroq/user-app
+72 verbose already installed skipping hapi@~10.4.1 /home/user-1/Documents/Work/zeroq/user-app
+73 verbose already installed skipping good@~6.4.0 /home/user-1/Documents/Work/zeroq/user-app
+74 silly addNameRange { name: 'yar', range: '>=4.2.0-0 <4.3.0-0', hasData: false }
+75 verbose cache add name="chairo" spec="~0.2.1" args=["chairo","~0.2.1"]
+76 verbose parsed url { protocol: null,
+76 verbose parsed url   slashes: null,
+76 verbose parsed url   auth: null,
+76 verbose parsed url   host: null,
+76 verbose parsed url   port: null,
+76 verbose parsed url   hostname: null,
+76 verbose parsed url   hash: null,
+76 verbose parsed url   search: null,
+76 verbose parsed url   query: null,
+76 verbose parsed url   pathname: '~0.2.1',
+76 verbose parsed url   path: '~0.2.1',
+76 verbose parsed url   href: '~0.2.1' }
+77 verbose addNamed [ 'chairo', '~0.2.1' ]
+78 verbose addNamed [ null, '>=0.2.1-0 <0.3.0-0' ]
+79 silly lockFile 98554baa-chairo-0-2-1 chairo@~0.2.1
+80 verbose lock chairo@~0.2.1 /home/user-1/.npm/98554baa-chairo-0-2-1.lock
+81 verbose cache add name="boom" spec="2.x.x" args=["boom","2.x.x"]
+82 verbose parsed url { protocol: null,
+82 verbose parsed url   slashes: null,
+82 verbose parsed url   auth: null,
+82 verbose parsed url   host: null,
+82 verbose parsed url   port: null,
+82 verbose parsed url   hostname: null,
+82 verbose parsed url   hash: null,
+82 verbose parsed url   search: null,
+82 verbose parsed url   query: null,
+82 verbose parsed url   pathname: '2.x.x',
+82 verbose parsed url   path: '2.x.x',
+82 verbose parsed url   href: '2.x.x' }
+83 verbose addNamed [ 'boom', '2.x.x' ]
+84 verbose addNamed [ null, '>=2.0.0-0 <3.0.0-0' ]
+85 silly lockFile be740072-boom-2-x-x boom@2.x.x
+86 verbose lock boom@2.x.x /home/user-1/.npm/be740072-boom-2-x-x.lock
+87 verbose cache add [ 'good-console@~5.1.0', null ]
+88 verbose cache add name=undefined spec="good-console@~5.1.0" args=["good-console@~5.1.0",null]
+89 verbose parsed url { protocol: null,
+89 verbose parsed url   slashes: null,
+89 verbose parsed url   auth: null,
+89 verbose parsed url   host: null,
+89 verbose parsed url   port: null,
+89 verbose parsed url   hostname: null,
+89 verbose parsed url   hash: null,
+89 verbose parsed url   search: null,
+89 verbose parsed url   query: null,
+89 verbose parsed url   pathname: 'good-console@~5.1.0',
+89 verbose parsed url   path: 'good-console@~5.1.0',
+89 verbose parsed url   href: 'good-console@~5.1.0' }
+90 verbose request where is /yar
+91 verbose request registry http://localhost:4873/
+92 verbose url raw /yar
+93 verbose url resolving [ 'http://localhost:4873/', './yar' ]
+94 verbose url resolved http://localhost:4873/yar
+95 verbose request where is http://localhost:4873/yar
+96 info trying registry request attempt 1 at 16:08:54
+97 http GET http://localhost:4873/yar
+98 verbose cache add name="good-console" spec="~5.1.0" args=["good-console","~5.1.0"]
+99 verbose parsed url { protocol: null,
+99 verbose parsed url   slashes: null,
+99 verbose parsed url   auth: null,
+99 verbose parsed url   host: null,
+99 verbose parsed url   port: null,
+99 verbose parsed url   hostname: null,
+99 verbose parsed url   hash: null,
+99 verbose parsed url   search: null,
+99 verbose parsed url   query: null,
+99 verbose parsed url   pathname: '~5.1.0',
+99 verbose parsed url   path: '~5.1.0',
+99 verbose parsed url   href: '~5.1.0' }
+100 verbose addNamed [ 'good-console', '~5.1.0' ]
+101 verbose addNamed [ null, '>=5.1.0-0 <5.2.0-0' ]
+102 silly lockFile bfddf875-good-console-5-1-0 good-console@~5.1.0
+103 verbose lock good-console@~5.1.0 /home/user-1/.npm/bfddf875-good-console-5-1-0.lock
+104 silly addNameRange { name: 'boom', range: '>=2.0.0-0 <3.0.0-0', hasData: false }
+105 silly addNameRange { name: 'chairo', range: '>=0.2.1-0 <0.3.0-0', hasData: false }
+106 verbose request where is /boom
+107 verbose request registry http://localhost:4873/
+108 verbose url raw /boom
+109 verbose url resolving [ 'http://localhost:4873/', './boom' ]
+110 verbose url resolved http://localhost:4873/boom
+111 verbose request where is http://localhost:4873/boom
+112 info trying registry request attempt 1 at 16:08:54
+113 http GET http://localhost:4873/boom
+114 silly addNameRange { name: 'good-console',
+114 silly addNameRange   range: '>=5.1.0-0 <5.2.0-0',
+114 silly addNameRange   hasData: false }
+115 verbose request where is /good-console
+116 verbose request registry http://localhost:4873/
+117 verbose url raw /good-console
+118 verbose url resolving [ 'http://localhost:4873/', './good-console' ]
+119 verbose url resolved http://localhost:4873/good-console
+120 verbose request where is http://localhost:4873/good-console
+121 info trying registry request attempt 1 at 16:08:54
+122 http GET http://localhost:4873/good-console
+123 verbose request where is /chairo
+124 verbose request registry http://localhost:4873/
+125 verbose url raw /chairo
+126 verbose url resolving [ 'http://localhost:4873/', './chairo' ]
+127 verbose url resolved http://localhost:4873/chairo
+128 verbose request where is http://localhost:4873/chairo
+129 info trying registry request attempt 1 at 16:08:54
+130 verbose etag "55680884d3a73c1d3f31e1a7d728b043"
+131 http GET http://localhost:4873/chairo
+132 http 404 http://localhost:4873/boom
+133 verbose headers { 'x-powered-by': 'Sinopia/1.4.0',
+133 verbose headers   'content-type': 'application/json; charset=utf-8',
+133 verbose headers   'content-length': '43',
+133 verbose headers   etag: 'W/"2b-d418f262"',
+133 verbose headers   vary: 'Accept-Encoding',
+133 verbose headers   'x-status-cat': 'http://flic.kr/p/aV6juR',
+133 verbose headers   date: 'Sun, 18 Oct 2015 10:39:15 GMT',
+133 verbose headers   connection: 'keep-alive' }
+134 silly registry.get cb [ 404,
+134 silly registry.get   { 'x-powered-by': 'Sinopia/1.4.0',
+134 silly registry.get     'content-type': 'application/json; charset=utf-8',
+134 silly registry.get     'content-length': '43',
+134 silly registry.get     etag: 'W/"2b-d418f262"',
+134 silly registry.get     vary: 'Accept-Encoding',
+134 silly registry.get     'x-status-cat': 'http://flic.kr/p/aV6juR',
+134 silly registry.get     date: 'Sun, 18 Oct 2015 10:39:15 GMT',
+134 silly registry.get     connection: 'keep-alive' } ]
+135 silly lockFile be740072-boom-2-x-x boom@2.x.x
+136 silly lockFile be740072-boom-2-x-x boom@2.x.x
+137 http 304 http://localhost:4873/chairo
+138 silly registry.get cb [ 304,
+138 silly registry.get   { 'x-powered-by': 'Sinopia/1.4.0',
+138 silly registry.get     etag: '"55680884d3a73c1d3f31e1a7d728b043"',
+138 silly registry.get     'x-status-cat': 'http://flic.kr/p/aXY3dH',
+138 silly registry.get     date: 'Sun, 18 Oct 2015 10:39:15 GMT',
+138 silly registry.get     connection: 'keep-alive' } ]
+139 verbose etag http://localhost:4873/chairo from cache
+140 silly addNameRange number 2 { name: 'chairo', range: '>=0.2.1-0 <0.3.0-0', hasData: true }
+141 silly addNameRange versions [ 'chairo', [ '0.0.1', '0.1.0', '0.2.0', '0.2.1' ] ]
+142 verbose addNamed [ 'chairo', '0.2.1' ]
+143 verbose addNamed [ '0.2.1', '0.2.1' ]
+144 silly lockFile 0a208bf9-chairo-0-2-1 chairo@0.2.1
+145 verbose lock chairo@0.2.1 /home/user-1/.npm/0a208bf9-chairo-0-2-1.lock
+146 silly lockFile 0a208bf9-chairo-0-2-1 chairo@0.2.1
+147 silly lockFile 0a208bf9-chairo-0-2-1 chairo@0.2.1
+148 silly lockFile 98554baa-chairo-0-2-1 chairo@~0.2.1
+149 silly lockFile 98554baa-chairo-0-2-1 chairo@~0.2.1
+150 http 404 http://localhost:4873/good-console
+151 verbose headers { 'x-powered-by': 'Sinopia/1.4.0',
+151 verbose headers   'content-type': 'application/json; charset=utf-8',
+151 verbose headers   'content-length': '43',
+151 verbose headers   etag: 'W/"2b-d418f262"',
+151 verbose headers   vary: 'Accept-Encoding',
+151 verbose headers   'x-status-cat': 'http://flic.kr/p/aV6juR',
+151 verbose headers   date: 'Sun, 18 Oct 2015 10:39:20 GMT',
+151 verbose headers   connection: 'keep-alive' }
+152 silly registry.get cb [ 404,
+152 silly registry.get   { 'x-powered-by': 'Sinopia/1.4.0',
+152 silly registry.get     'content-type': 'application/json; charset=utf-8',
+152 silly registry.get     'content-length': '43',
+152 silly registry.get     etag: 'W/"2b-d418f262"',
+152 silly registry.get     vary: 'Accept-Encoding',
+152 silly registry.get     'x-status-cat': 'http://flic.kr/p/aV6juR',
+152 silly registry.get     date: 'Sun, 18 Oct 2015 10:39:20 GMT',
+152 silly registry.get     connection: 'keep-alive' } ]
+153 silly lockFile bfddf875-good-console-5-1-0 good-console@~5.1.0
+154 silly lockFile bfddf875-good-console-5-1-0 good-console@~5.1.0
+155 http 404 http://localhost:4873/good-file
+156 verbose headers { 'x-powered-by': 'Sinopia/1.4.0',
+156 verbose headers   'content-type': 'application/json; charset=utf-8',
+156 verbose headers   'content-length': '43',
+156 verbose headers   etag: 'W/"2b-d418f262"',
+156 verbose headers   vary: 'Accept-Encoding',
+156 verbose headers   'x-status-cat': 'http://flic.kr/p/aV6juR',
+156 verbose headers   date: 'Sun, 18 Oct 2015 10:39:24 GMT',
+156 verbose headers   connection: 'keep-alive' }
+157 silly registry.get cb [ 404,
+157 silly registry.get   { 'x-powered-by': 'Sinopia/1.4.0',
+157 silly registry.get     'content-type': 'application/json; charset=utf-8',
+157 silly registry.get     'content-length': '43',
+157 silly registry.get     etag: 'W/"2b-d418f262"',
+157 silly registry.get     vary: 'Accept-Encoding',
+157 silly registry.get     'x-status-cat': 'http://flic.kr/p/aV6juR',
+157 silly registry.get     date: 'Sun, 18 Oct 2015 10:39:24 GMT',
+157 silly registry.get     connection: 'keep-alive' } ]
+158 silly lockFile e0545084-good-file-5-1-0 good-file@~5.1.0
+159 silly lockFile e0545084-good-file-5-1-0 good-file@~5.1.0
+160 http 404 http://localhost:4873/hapi-swagger
+161 verbose headers { 'x-powered-by': 'Sinopia/1.4.0',
+161 verbose headers   'content-type': 'application/json; charset=utf-8',
+161 verbose headers   'content-length': '43',
+161 verbose headers   etag: 'W/"2b-d418f262"',
+161 verbose headers   vary: 'Accept-Encoding',
+161 verbose headers   'x-status-cat': 'http://flic.kr/p/aV6juR',
+161 verbose headers   date: 'Sun, 18 Oct 2015 10:39:24 GMT',
+161 verbose headers   connection: 'keep-alive' }
+162 silly registry.get cb [ 404,
+162 silly registry.get   { 'x-powered-by': 'Sinopia/1.4.0',
+162 silly registry.get     'content-type': 'application/json; charset=utf-8',
+162 silly registry.get     'content-length': '43',
+162 silly registry.get     etag: 'W/"2b-d418f262"',
+162 silly registry.get     vary: 'Accept-Encoding',
+162 silly registry.get     'x-status-cat': 'http://flic.kr/p/aV6juR',
+162 silly registry.get     date: 'Sun, 18 Oct 2015 10:39:24 GMT',
+162 silly registry.get     connection: 'keep-alive' } ]
+163 silly lockFile c6c68bbf-hapi-swagger-2-1-0 hapi-swagger@~2.1.0
+164 silly lockFile c6c68bbf-hapi-swagger-2-1-0 hapi-swagger@~2.1.0
+165 http 404 http://localhost:4873/yar
+166 verbose headers { 'x-powered-by': 'Sinopia/1.4.0',
+166 verbose headers   'content-type': 'application/json; charset=utf-8',
+166 verbose headers   'content-length': '43',
+166 verbose headers   etag: 'W/"2b-d418f262"',
+166 verbose headers   vary: 'Accept-Encoding',
+166 verbose headers   'x-status-cat': 'http://flic.kr/p/aV6juR',
+166 verbose headers   date: 'Sun, 18 Oct 2015 10:39:24 GMT',
+166 verbose headers   connection: 'keep-alive' }
+167 silly registry.get cb [ 404,
+167 silly registry.get   { 'x-powered-by': 'Sinopia/1.4.0',
+167 silly registry.get     'content-type': 'application/json; charset=utf-8',
+167 silly registry.get     'content-length': '43',
+167 silly registry.get     etag: 'W/"2b-d418f262"',
+167 silly registry.get     vary: 'Accept-Encoding',
+167 silly registry.get     'x-status-cat': 'http://flic.kr/p/aV6juR',
+167 silly registry.get     date: 'Sun, 18 Oct 2015 10:39:24 GMT',
+167 silly registry.get     connection: 'keep-alive' } ]
+168 silly lockFile b31c8d01-yar-4-2-0 yar@~4.2.0
+169 silly lockFile b31c8d01-yar-4-2-0 yar@~4.2.0
+170 error Error: no such package available : boom
+170 error     at RegClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+170 error     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+170 error     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:236:22)
+170 error     at Request.emit (events.js:98:17)
+170 error     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+170 error     at Request.emit (events.js:117:20)
+170 error     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+170 error     at IncomingMessage.emit (events.js:117:20)
+170 error     at _stream_readable.js:944:16
+170 error     at process._tickCallback (node.js:448:13)
+171 error If you need help, you may report this *entire* log,
+171 error including the npm and node versions, at:
+171 error     <http://github.com/npm/npm/issues>
+172 error System Linux 3.16.0-43-generic
+173 error command "/usr/bin/node" "/usr/bin/npm" "install"
+174 error cwd /home/user-1/Documents/Work/zeroq/user-app
+175 error node -v v0.10.37
+176 error npm -v 1.4.28
+177 verbose exit [ 1, true ]

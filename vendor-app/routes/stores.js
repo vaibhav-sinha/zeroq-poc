@@ -10,7 +10,7 @@ exports.register = function (server, options, next) {
         handler: function (request, reply) {
             Async.waterfall([
                 function(callback) {
-                    server.seneca.act({role : 'store', cmd : 'get_by_username', username : request.payload.username}, function(err, result) {
+                    server.userService.act({role : 'store', cmd : 'get_by_username', username : request.payload.username}, function(err, result) {
                         if(err) {
                             return reply(Boom.badImplementation(err));
                         }
@@ -22,7 +22,7 @@ exports.register = function (server, options, next) {
                         var newStore = request.payload;
                         Bcrypt.hash(newStore.password, 8, function(err, hash) {
                             newStore['password'] = hash;
-                            server.seneca.act({role : 'store', cmd : 'create_new', store : newStore}, function(err, result) {
+                            server.userService.act({role : 'store', cmd : 'create_new', store : newStore}, function(err, result) {
                                 if(err) {
                                     return reply(Boom.badImplementation(err));
                                 }
@@ -48,7 +48,7 @@ exports.register = function (server, options, next) {
         config: {
             auth: {
                 mode: 'try',
-                strategy: 'session'
+                strategy: 'session-store'
             },
             plugins: {
                 'hapi-auth-cookie': {
@@ -82,7 +82,7 @@ exports.register = function (server, options, next) {
                         message = 'Missing username or password';
                     }
                     else {
-                        server.seneca.act({role : 'store', cmd : 'get_by_username', username : request.payload.username}, function(err, result) {
+                        server.userService.act({role : 'store', cmd : 'get_by_username', username : request.payload.username}, function(err, result) {
                             if(err) {
                                 return reply(Boom.badImplementation(err));
                             }
@@ -113,7 +113,7 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/me',
         config : {
-            auth: 'session',
+            auth: 'session-store',
             handler: function (request, reply) {
                 reply(request.auth.credentials);
             }
@@ -124,7 +124,7 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/logout',
         config : {
-            auth: 'session',
+            auth: 'session-store',
             handler: function (request, reply) {
                 request.auth.session.clear();
                 return reply.redirect('/');

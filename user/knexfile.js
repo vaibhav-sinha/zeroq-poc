@@ -5,7 +5,7 @@ module.exports = {
             host: '127.0.0.1',
             user: 'root',
             password: 'password',
-            database: 'zeroq',
+            database: 'zeroq_user',
             charset: 'utf8'
         },
         debug: true,

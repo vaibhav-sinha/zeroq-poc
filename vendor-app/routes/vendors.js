@@ -1,4 +1,3 @@
-var UUID = require('node-uuid');
 var Boom = require('boom');
 var Async = require('async');
 var Bcrypt = require('bcrypt');
@@ -10,7 +9,7 @@ exports.register = function (server, options, next) {
         handler: function (request, reply) {
             Async.waterfall([
                 function(callback) {
-                    server.seneca.act({role : 'vendor', cmd : 'get_by_username', username : request.payload.username}, function(err, result) {
+                    server.userService.act({role : 'vendor', cmd : 'get_by_username', username : request.payload.username}, function(err, result) {
                         if(err) {
                             return reply(Boom.badImplementation(err));
                         }
@@ -22,7 +21,7 @@ exports.register = function (server, options, next) {
                         var newVendor = request.payload;
                         Bcrypt.hash(newVendor.password, 8, function(err, hash) {
                             newVendor['password'] = hash;
-                            server.seneca.act({role : 'vendor', cmd : 'create_new', vendor : newVendor}, function(err, result) {
+                            server.userService.act({role : 'vendor', cmd : 'create_new', vendor : newVendor}, function(err, result) {
                                 if(err) {
                                     return reply(Boom.badImplementation(err));
                                 }
@@ -48,7 +47,7 @@ exports.register = function (server, options, next) {
         config: {
             auth: {
                 mode: 'try',
-                strategy: 'session'
+                strategy: 'session-vendor'
             },
             plugins: {
                 'hapi-auth-cookie': {
@@ -82,7 +81,7 @@ exports.register = function (server, options, next) {
                         message = 'Missing username or password';
                     }
                     else {
-                        server.seneca.act({role : 'vendor', cmd : 'get_by_username', username : request.payload.username}, function(err, result) {
+                        server.userService.act({role : 'vendor', cmd : 'get_by_username', username : request.payload.username}, function(err, result) {
                             if(err) {
                                 return reply(Boom.badImplementation(err));
                             }
@@ -113,7 +112,7 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/me',
         config : {
-            auth: 'session',
+            auth: 'session-vendor',
             handler: function (request, reply) {
                 reply(request.auth.credentials);
             }
@@ -124,7 +123,7 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/logout',
         config : {
-            auth: 'session',
+            auth: 'session-vendor',
             handler: function (request, reply) {
                 request.auth.session.clear();
                 return reply.redirect('/');

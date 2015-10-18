@@ -1,0 +1,20 @@
+{
+  "name": "product",
+  "version": "0.0.0",
+  "description": "Product service",
+  "main": "index.js",
+  "dependencies": {
+    "seneca": "~0.7.1",
+    "bookshelf": "~0.8.2",
+    "knex": "~0.8.6",
+    "mysql": "~2.9.0",
+    "node-uuid": "~1.4.3",
+    "boom": "~2.9.0",
+    "async": "~1.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause"
+}
