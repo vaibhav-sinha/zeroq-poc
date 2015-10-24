@@ -22,23 +22,27 @@ var yarOptions = {
 
 var goodOptions = {
     opsInterval: 1000,
-    reporters: [{
-        reporter: require('good-console'),
-        events: { log: '*', response: '*' }
-    }, {
-        reporter: require('good-file'),
-        events: { ops: '*' },
-        config: './test/fixtures/awesome_log'
-    }, {
-        reporter: 'good-http',
-        events: { error: '*' },
-        config: {
-            endpoint: 'http://localhost:3000',
-            wreck: {
-                headers: { 'x-api-key' : 12345 }
+    reporters: [
+        {
+            reporter: require('good-console'),
+            events: { log: '*', response: '*' }
+        },
+        {
+            reporter: require('good-file'),
+            events: { ops: '*' },
+            config: './logs/all.log'
+        },
+        {
+            reporter: 'good-http',
+            events: { error: '*' },
+            config: {
+                endpoint: 'http://localhost:6000',
+                wreck: {
+                    headers: { 'x-api-key' : 12345 }
+                }
             }
         }
-    }]
+    ]
 };
 
 var tvOptions = {
@@ -102,7 +106,14 @@ var pluginConf = [
         'tv' : tvOptions
     },
     {
-        './routes/users' : null
+        './routes/users' : [{
+            routes: { prefix: '/user' }
+        }]
+    },
+    {
+        './routes/shopping' : [{
+            routes: { prefix: '/shopping' }
+        }]
     },
     {
         './plugins/socket' : null

@@ -2,12 +2,22 @@ var UUID = require('node-uuid');
 var Boom = require('boom');
 var Async = require('async');
 var Bcrypt = require('bcrypt');
+var Joi = require('joi');
 
 exports.register = function (server, options, next) {
     server.route({
         method: 'POST',
         path: '/register',
         handler: function (request, reply) {
+            var payloadSchema = Joi.object().keys({
+                username: Joi.string().alphanum().required(),
+                password: Joi.string().alphanum().required()
+            });
+            Joi.validate(request.payload, payloadSchema, {abortEarly : false, allowUnknown : true}, function(err, value) {
+                if(err) {
+                    return reply(Boom.badData(err, request.payload));
+                }
+            });
             Async.waterfall([
                 function(callback) {
                     server.userService.act({role : 'store', cmd : 'get_by_username', username : request.payload.username}, function(err, result) {

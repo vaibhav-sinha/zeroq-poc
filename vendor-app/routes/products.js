@@ -1,5 +1,6 @@
 var Boom = require('boom');
 var Async = require('async');
+var Joi = require('joi');
 
 exports.register = function (server, options, next) {
 
@@ -30,6 +31,16 @@ exports.register = function (server, options, next) {
         config : {
             auth: 'session-store',
             handler: function (request, reply) {
+                var payloadSchema = Joi.object().keys({
+                    page: Joi.number().integer().required(),
+                    limit: Joi.number().integer().required(),
+                    query: Joi.object().required()
+                });
+                Joi.validate(request.payload, payloadSchema, {abortEarly : false, allowUnknown : true}, function(err, value) {
+                    if(err) {
+                        return reply(Boom.badData(err, request.payload));
+                    }
+                });
                 var query = request.payload.query;
                 var page = request.payload.page;
                 var limit = request.payload.limit;
@@ -59,7 +70,7 @@ exports.register = function (server, options, next) {
         config: {
             auth: 'session-store',
             handler: function (request, reply) {
-                var product = request.payload.product;
+                var product = request.payload;
                 product.store_id = request.auth.credentials.id;
                 server.productService.act({role: 'product', cmd: 'create', product: product}, function (err, result) {
                     if (err) {
@@ -77,7 +88,7 @@ exports.register = function (server, options, next) {
         config: {
             auth: 'session-store',
             handler: function (request, reply) {
-                var product = request.payload.product;
+                var product = request.payload;
                 product.store_id = request.auth.credentials.id;
                 server.productService.act({role: 'product', cmd: 'update', product: product}, function (err, result) {
                     if (err) {
@@ -95,7 +106,7 @@ exports.register = function (server, options, next) {
         config : {
             auth: 'session-store',
             handler: function (request, reply) {
-                var product = request.payload.product;
+                var product = request.payload;
                 product.store_id = request.auth.credentials.id;
                 server.productService.act({role: 'product', cmd: 'delete', product: product}, function (err, result) {
                     if (err) {

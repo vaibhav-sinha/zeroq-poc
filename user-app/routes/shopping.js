@@ -1,5 +1,6 @@
 var Boom = require('boom');
 var Async = require('async');
+var Joi = require('joi');
 
 exports.register = function (server, options, next) {
 
@@ -9,6 +10,14 @@ exports.register = function (server, options, next) {
         config : {
             auth: 'simple',
             handler: function (request, reply) {
+                var payloadSchema = Joi.object().keys({
+                    cart_id: Joi.number().integer().required()
+                });
+                Joi.validate(request.payload, payloadSchema, {abortEarly : false, allowUnknown : true}, function(err, value) {
+                    if(err) {
+                        return reply(Boom.badData(err, request.payload));
+                    }
+                });
                 var cart_id = request.payload.cart_id;
                 var user_id = request.auth.credentials.id;
                 var status = 'active';
@@ -70,7 +79,8 @@ exports.register = function (server, options, next) {
                     };
                     reply(success);
                 });
-            }
+            },
+            tags : ['api']
         }
     });
 
@@ -80,6 +90,14 @@ exports.register = function (server, options, next) {
         config : {
             //auth : 'simple',
             handler : function(request, reply) {
+                var payloadSchema = Joi.object().keys({
+                    cart_id: Joi.number().integer().required()
+                });
+                Joi.validate(request.payload, payloadSchema, {abortEarly : false, allowUnknown : true}, function(err, value) {
+                    if(err) {
+                        return reply(Boom.badData(err, request.payload));
+                    }
+                });
                 var cart_id = request.payload.cart_id;
                 Async.waterfall([
                     function(callback) {
@@ -113,7 +131,8 @@ exports.register = function (server, options, next) {
                     };
                     reply(success);
                 })
-            }
+            },
+            tags : ['api']
         }
     });
 
@@ -123,6 +142,15 @@ exports.register = function (server, options, next) {
         config : {
             //auth : 'simple',
             handler : function(request, reply) {
+                var payloadSchema = Joi.object().keys({
+                    cart_id: Joi.number().integer().required(),
+                    tag_id: Joi.number().integer().required()
+                });
+                Joi.validate(request.payload, payloadSchema, {abortEarly : false, allowUnknown : true}, function(err, value) {
+                    if(err) {
+                        return reply(Boom.badData(err, request.payload));
+                    }
+                });
                 var cart_id = request.payload.cart_id;
                 var tag_id = request.payload.tag_id;
                 Async.waterfall([
@@ -182,7 +210,8 @@ exports.register = function (server, options, next) {
                 ], function (err, product) {
                     server.socket.emit('item_added', product);
                 });
-            }
+            },
+            tags : ['api']
         }
     });
 
