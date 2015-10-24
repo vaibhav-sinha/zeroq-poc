@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98b4655a-ca0d-4095-93d8-01f55403fcb0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/user-app/plugins/socket/handlers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/user-app/static/html/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/user-app/plugins/socket/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/user-app/routes/shopping.js" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/user-app/node_modules/chairo/node_modules/boom/.npmignore" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/user-app/node_modules/chairo/node_modules/boom/.travis.yml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/user-app/node_modules/chairo/node_modules/boom/CONTRIBUTING.md" afterPath="" />
@@ -35,15 +31,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/vendor-app/node_modules/tv/node_modules/ws/node_modules/bufferutil/build/binding.Makefile" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/vendor-app/node_modules/tv/node_modules/ws/node_modules/bufferutil/build/bufferutil.target.mk" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/vendor-app/node_modules/tv/node_modules/ws/node_modules/bufferutil/build/config.gypi" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microservices/product/services/cart_service.js" afterPath="$PROJECT_DIR$/microservices/product/services/cart_service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-app/package.json" afterPath="$PROJECT_DIR$/user-app/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microservices/product/services/product_service.js" afterPath="$PROJECT_DIR$/microservices/product/services/product_service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-app/server.js" afterPath="$PROJECT_DIR$/user-app/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microservices/billing/services/shopping_service.js" afterPath="$PROJECT_DIR$/microservices/billing/services/shopping_service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microservices/product/services/tag_service.js" afterPath="$PROJECT_DIR$/microservices/product/services/tag_service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microservices/user/services/user_service.js" afterPath="$PROJECT_DIR$/microservices/user/services/user_service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microservices/user/services/vendor_service.js" afterPath="$PROJECT_DIR$/microservices/user/services/vendor_service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="zeroq.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -820,12 +807,12 @@
       <workItem from="1445148055414" duration="21880000" />
       <workItem from="1445491550919" duration="464000" />
       <workItem from="1445492953284" duration="5906000" />
-      <workItem from="1445664743547" duration="9838000" />
+      <workItem from="1445664743547" duration="9911000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98745000" />
+    <option name="totallyTimeSpent" value="98818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
