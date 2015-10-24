@@ -6,7 +6,7 @@ module.exports = function user_service( options ) {
         model.User.where('id', msg.id).fetch().then(function(user) {
             respond(null, {answer: user});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -14,7 +14,7 @@ module.exports = function user_service( options ) {
         model.User.where('key', msg.key).fetch().then(function(user) {
             respond(null, {answer: user});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -22,7 +22,7 @@ module.exports = function user_service( options ) {
         new model.User().save(msg.user, {method: 'insert'}).then(function(user) {
             respond(null, {answer: user});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 

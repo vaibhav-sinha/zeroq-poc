@@ -6,7 +6,7 @@ module.exports = function vendor_service( options ) {
         model.Vendor.where('username', msg.username).fetch().then(function(vendor) {
             respond(null, {answer: vendor});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -14,7 +14,7 @@ module.exports = function vendor_service( options ) {
         new model.Vendor().save(msg.vendor, {method: 'insert'}).then(function(vendor) {
             respond(null, {answer: vendor});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -22,7 +22,7 @@ module.exports = function vendor_service( options ) {
         model.Store.where('username', msg.username).fetch().then(function(store) {
             respond(null, {answer: store});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -30,7 +30,7 @@ module.exports = function vendor_service( options ) {
         new model.Store().save(msg.store, {method: 'insert'}).then(function(store) {
             respond(null, {answer: store});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 

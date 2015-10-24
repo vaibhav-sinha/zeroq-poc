@@ -1,4 +1,5 @@
 var model = require('./../model');
+var Async = require('async');
 
 module.exports = function shopping_service( options ) {
 
@@ -26,7 +27,7 @@ module.exports = function shopping_service( options ) {
         qb.fetch().then(function(shoppingList) {
             respond(null, {answer: shoppingList});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -34,7 +35,7 @@ module.exports = function shopping_service( options ) {
         model.Shopping.where('id', msg.id).fetch().then(function(shopping) {
             respond(null, {answer: shopping});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -42,7 +43,7 @@ module.exports = function shopping_service( options ) {
         new model.Shopping().save(msg.data, {method: 'insert'}).then(function(shopping) {
             respond(null, {answer: shopping});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -50,7 +51,7 @@ module.exports = function shopping_service( options ) {
         new model.Shopping().save(msg.data, {method: 'update'}).then(function(shopping) {
             respond(null, {answer: shopping});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -60,13 +61,13 @@ module.exports = function shopping_service( options ) {
             tag_id : msg.tag_id,
             product_id : msg.product_id
         };
-        model.ShoppingItems.query(entry).then(function(shoppingItem){
+        model.ShoppingItems.query({where : entry}).fetch().then(function(shoppingItem){
             if(shoppingItem) {
                 shoppingItem.active = true;
                 new model.ShoppingItems().save(shoppingItem, {method: 'update'}).then(function (item) {
                     respond(null, {answer: item});
                 }).catch(function (error) {
-                    console.error(error);
+                    respond(error, null);
                 });
             }
             else {
@@ -74,11 +75,11 @@ module.exports = function shopping_service( options ) {
                 new model.ShoppingItems().save(entry, {method: 'insert'}).then(function (item) {
                     respond(null, {answer: item});
                 }).catch(function (error) {
-                    console.error(error);
+                    respond(error, null);
                 });
             }
         }).catch(function(error){
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -89,15 +90,15 @@ module.exports = function shopping_service( options ) {
             product_id : msg.product_id,
             active : true
         };
-        model.ShoppingItems.query(entry).then(function(shoppingItem){
+        model.ShoppingItems.query({where : entry}).fetch().then(function(shoppingItem){
             shoppingItem.active = false;
             new model.ShoppingItems().save(shoppingItem, {method: 'update'}).then(function(shopping) {
                 respond(null, {answer: shopping});
             }).catch(function(error) {
-                console.error(error);
+                respond(error, null);
             });
         }).catch(function(error){
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -105,7 +106,29 @@ module.exports = function shopping_service( options ) {
         model.ShoppingStoreProductMapping.where('shopping_id', msg.id).fetch().then(function(association) {
             respond(null, {answer: association});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
+        });
+    });
+
+    this.add( 'role:shopping, cmd:update_status', function get( msg, respond ) {
+        Async.waterfall([
+            function(callback) {
+                model.Shopping.query().where({cart_id : msg.cart_id}).fetch(shopping).then(function() {
+                    callback(null, shopping);
+                }).catch(function(error) {
+                    callback(error, null);
+                })
+            },
+            function(shopping, callback) {
+                shopping['status'] = msg.status;
+                new model.Shopping().save(shopping, {method: 'update'}).then(function(shopping) {
+                    callback(null, {answer: shopping});
+                }).catch(function(error) {
+                    callback(error, null);
+                });
+            }
+        ], function(err, result) {
+            respond(err, result);
         });
     });
 

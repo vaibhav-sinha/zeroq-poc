@@ -1,6 +1,7 @@
 var Hapi            = require('hapi'),
     Pack            = require('./package'),
     Glue            = require('glue'),
+    Path            = require('path'),
     _               = require('lodash-node');
 
 //Application plugins
@@ -44,7 +45,7 @@ var tvOptions = {
     endpoint : '/tv'
 };
 
-var chairoUserServiceOptions = {
+var senecaUserServiceOptions = {
     seneca : {
     },
     plugin : {
@@ -52,7 +53,7 @@ var chairoUserServiceOptions = {
     }
 };
 
-var chairoProductServiceOptions = {
+var senecaProductServiceOptions = {
     seneca : {
     },
     plugin : {
@@ -60,13 +61,24 @@ var chairoProductServiceOptions = {
     }
 };
 
+var senecaShoppingServiceOptions = {
+    seneca : {
+    },
+    plugin : {
+        decorateWithName : 'shoppingService'
+    }
+};
+
 
 var pluginConf = [
     {
-        './plugins/seneca-plugin' : chairoUserServiceOptions
+        './plugins/seneca-plugin' : senecaUserServiceOptions
     },
     {
-        './plugins/seneca-plugin' : chairoProductServiceOptions
+        './plugins/seneca-plugin' : senecaProductServiceOptions
+    },
+    {
+        './plugins/seneca-plugin' : senecaShoppingServiceOptions
     },
     {
         './plugins/access-token-auth' : null
@@ -91,6 +103,9 @@ var pluginConf = [
     },
     {
         './routes/users' : null
+    },
+    {
+        './plugins/socket' : null
     }
 ];
 
@@ -100,7 +115,13 @@ var options = {
 
 var manifest = {
     server : {
-
+        connections: {
+            routes: {
+                files: {
+                    relativeTo: Path.join(__dirname, 'static')
+                }
+            }
+        }
     },
     connections : [
         {
@@ -119,7 +140,24 @@ Glue.compose(manifest, options, function (err, server) {
     server.start(function () {
 
         // Create Seneca client
-        server.seneca.client();
+        server.userService.client({port : 20101});
+        server.productService.client({port : 20102});
+        server.shoppingService.client({port : 20103});
+
+        //Server static content
+        server.route({
+            method: 'GET',
+            path: '/{param}',
+            handler: {
+                directory: {
+                    path: [
+                        './html',
+                        './css',
+                        './js'
+                    ]
+                }
+            }
+        });
 
         // Add any server.route() config here
         console.log('Server running at:', server.info.uri);

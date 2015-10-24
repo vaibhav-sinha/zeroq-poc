@@ -26,7 +26,7 @@ module.exports = function tag_service( options ) {
         qb.fetch().then(function(tagList) {
             respond(null, {answer: tagList});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -34,7 +34,7 @@ module.exports = function tag_service( options ) {
         model.Tag.where('id', msg.id).fetch().then(function(tag) {
             respond(null, {answer: tag});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -42,7 +42,7 @@ module.exports = function tag_service( options ) {
         new model.Tag().save(msg.data, {method: 'insert'}).then(function(tag) {
             respond(null, {answer: tag});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -50,7 +50,7 @@ module.exports = function tag_service( options ) {
         new model.Tag().save(msg.data, {method: 'update'}).then(function(tag) {
             respond(null, {answer: tag});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -63,7 +63,7 @@ module.exports = function tag_service( options ) {
         new model.TagStoreProductMapping().save(entry, {method: 'insert'}).then(function(tag) {
             respond(null, {answer: tag});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -71,7 +71,7 @@ module.exports = function tag_service( options ) {
         model.TagStoreProductMapping.where('tag_id', msg.id).fetch().then(function(association) {
             respond(null, {answer: association});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 

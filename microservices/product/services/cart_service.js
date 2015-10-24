@@ -26,7 +26,7 @@ module.exports = function cart_service( options ) {
         qb.fetch().then(function(cartList) {
             respond(null, {answer: cartList});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -34,7 +34,7 @@ module.exports = function cart_service( options ) {
         model.Cart.where('id', msg.id).fetch().then(function(cart) {
             respond(null, {answer: cart});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -42,7 +42,7 @@ module.exports = function cart_service( options ) {
         new model.Cart().save(msg.cart, {method: 'insert'}).then(function(cart) {
             respond(null, {answer: cart});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -50,7 +50,7 @@ module.exports = function cart_service( options ) {
         new model.Cart().save(msg.cart, {method: 'update'}).then(function(cart) {
             respond(null, {answer: cart});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
@@ -59,7 +59,7 @@ module.exports = function cart_service( options ) {
         new model.Cart().save(msg.cart, {method: 'update'}).then(function(cart) {
             respond(null, {answer: cart});
         }).catch(function(error) {
-            console.error(error);
+            respond(error, null);
         });
     });
 
