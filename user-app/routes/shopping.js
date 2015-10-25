@@ -126,6 +126,7 @@ exports.register = function (server, options, next) {
                         })
                     }
                 ], function(err, result) {
+                    server.socket.emit('trigger_billing', "Ok");
                     var success = {
                         status : 'success'
                     };

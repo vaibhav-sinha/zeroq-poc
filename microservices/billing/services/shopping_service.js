@@ -114,15 +114,15 @@ module.exports = function shopping_service( options ) {
     this.add( 'role:shopping, cmd:update_status', function get( msg, respond ) {
         Async.waterfall([
             function(callback) {
-                model.Shopping.query().where({cart_id : msg.cart_id}).fetch(shopping).then(function() {
+                model.Shopping.where('cart_id', msg.cart_id).fetch().then(function(shopping) {
                     callback(null, shopping);
                 }).catch(function(error) {
                     callback(error, null);
                 })
             },
             function(shopping, callback) {
-                shopping['status'] = msg.status;
-                new model.Shopping().save(shopping, {method: 'update'}).then(function(shopping) {
+                shopping.attributes['status'] = msg.status;
+                new model.Shopping().save(shopping.attributes, {method: 'update'}).then(function(shopping) {
                     callback(null, {answer: shopping});
                 }).catch(function(error) {
                     callback(error, null);
