@@ -209,6 +209,7 @@ exports.register = function (server, options, next) {
                     }
                 ], function (err, product) {
                     server.socket.emit('item_added', product);
+                    reply("Ok");
                 });
             },
             tags : ['api']

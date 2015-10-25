@@ -30,7 +30,7 @@ var goodOptions = {
         {
             reporter: require('good-file'),
             events: { ops: '*' },
-            config: './logs/all.log'
+            config: './logs/user-app.log'
         },
         {
             reporter: 'good-http',
@@ -88,6 +88,9 @@ var pluginConf = [
         './plugins/access-token-auth' : null
     },
     {
+        './plugins/socket' : null
+    },
+    {
         'inert' : null
     },
     {
@@ -114,9 +117,6 @@ var pluginConf = [
         './routes/shopping' : [{
             routes: { prefix: '/shopping' }
         }]
-    },
-    {
-        './plugins/socket' : null
     }
 ];
 
@@ -136,6 +136,7 @@ var manifest = {
     },
     connections : [
         {
+            host : '0.0.0.0',
             port : 3000,
             labels : ['api']
         }

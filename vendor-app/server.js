@@ -25,7 +25,7 @@ var goodOptions = {
     }, {
         reporter: require('good-file'),
         events: { ops: '*' },
-        config: './test/fixtures/awesome_log'
+        config: './logs/vendor-app.log'
     }, {
         reporter: 'good-http',
         events: { error: '*' },

@@ -7,23 +7,24 @@ module.exports = function product_service( options ) {
         var page = msg.page;
         var limit = msg.limit;
 
-        var qb = model.Product.query();
-        if(query instanceof Array) {
-            var first = true;
-            for(q in query) {
-                if(first) {
-                    qb = qb.where(q);
-                }
-                else {
-                    qb = qb.orWhere(q);
+        model.Product.query(function(qb) {
+            if(query instanceof Array) {
+                var len = query.length;
+                for(var i = 0; i < len; i++) {
+                    var q = query[i];
+                    if(i == 0) {
+                        qb = qb.where(q);
+                    }
+                    else {
+                        qb = qb.orWhere(q);
+                    }
                 }
             }
-        }
-        else {
-            qb = qb.where(query);
-        }
-        qb = qb.limit(limit).offset((page - 1) * limit);
-        qb.fetch().then(function(productList) {
+            else {
+                qb = qb.where(query);
+            }
+            qb.limit(limit).offset((page - 1) * limit);
+        }).fetch().then(function(productList) {
             respond(null, {answer: productList});
         }).catch(function(error) {
             respond(error, null);

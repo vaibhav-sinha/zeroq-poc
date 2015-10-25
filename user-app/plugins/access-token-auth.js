@@ -9,7 +9,7 @@ exports.register = function(server, options, next) {
             allowMultipleHeaders: false,        // optional, false by default
             accessTokenName: 'access_token',    // optional, 'access_token' by default
             validateFunc: function( token, callback ) {
-                server.seneca.act({role : 'user', cmd : 'get_by_key', key : token}, function(err, result) {
+                server.userService.act({role : 'user', cmd : 'get_by_key', key : token}, function(err, result) {
                     if(result.answer) {
                         callback(null,true, result.answer);
                     }
