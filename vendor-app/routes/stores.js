@@ -58,7 +58,7 @@ exports.register = function (server, options, next) {
         config: {
             auth: {
                 mode: 'try',
-                strategy: 'session-store'
+                strategy: 'session'
             },
             plugins: {
                 'hapi-auth-cookie': {
@@ -123,7 +123,7 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/me',
         config : {
-            auth: 'session-store',
+            auth: 'session',
             handler: function (request, reply) {
                 reply(request.auth.credentials);
             }
@@ -134,7 +134,7 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/logout',
         config : {
-            auth: 'session-store',
+            auth: 'session',
             handler: function (request, reply) {
                 request.auth.session.clear();
                 return reply.redirect('/');

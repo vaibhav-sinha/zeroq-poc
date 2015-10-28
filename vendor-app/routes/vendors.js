@@ -5,9 +5,12 @@ var Joi = require('joi');
 
 exports.register = function (server, options, next) {
     server.route({
-        method: 'POST',
+        method: ['GET', 'POST'],
         path: '/register',
         handler: function (request, reply) {
+            if(request.method === 'get') {
+                return reply.file('./html/vendor_register.html');
+            }
             var payloadSchema = Joi.object().keys({
                 username: Joi.string().alphanum().required(),
                 password: Joi.string().alphanum().required()
@@ -57,7 +60,7 @@ exports.register = function (server, options, next) {
         config: {
             auth: {
                 mode: 'try',
-                strategy: 'session-vendor'
+                strategy: 'session'
             },
             plugins: {
                 'hapi-auth-cookie': {
@@ -66,21 +69,16 @@ exports.register = function (server, options, next) {
             },
             handler: function(request, reply) {
                 if (request.auth.isAuthenticated) {
-                    return reply.redirect('/');
+                    return reply.redirect(server.realm.modifiers.route.prefix + '/me');
                 }
 
                 var callback = function(message, vendor) {
                     if (request.method === 'get' || message) {
-                        return reply('<html><head><title>Login page</title></head><body>'
-                            + (message ? '<h3>' + message + '</h3><br/>' : '')
-                            + '<form method="post" action="/login">'
-                            + 'Username: <input type="text" name="username"><br>'
-                            + 'Password: <input type="password" name="password"><br/>'
-                            + '<input type="submit" value="Login"></form></body></html>');
+                        return reply.file('./html/vendor_register.html');
                     }
 
                     request.auth.session.set(vendor);
-                    return reply.redirect('/');
+                    return reply.redirect(server.realm.modifiers.route.prefix + '/me');
                 };
 
                 var message = '';
@@ -122,7 +120,7 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/me',
         config : {
-            auth: 'session-vendor',
+            auth: 'session',
             handler: function (request, reply) {
                 reply(request.auth.credentials);
             }
@@ -133,10 +131,10 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/logout',
         config : {
-            auth: 'session-vendor',
+            auth: 'session',
             handler: function (request, reply) {
                 request.auth.session.clear();
-                return reply.redirect('/');
+                return reply.redirect(server.realm.modifiers.route.prefix + '/login');
             }
         }
     });

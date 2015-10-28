@@ -1,6 +1,7 @@
 var Hapi            = require('hapi'),
     Pack            = require('./package'),
     Glue            = require('glue'),
+    Path            = require('path'),
     _               = require('lodash-node');
 
 
@@ -110,7 +111,13 @@ var options = {
 
 var manifest = {
     server : {
-
+        connections: {
+            routes: {
+                files: {
+                    relativeTo: Path.join(__dirname, 'static')
+                }
+            }
+        }
     },
     connections : [
         {
@@ -131,6 +138,22 @@ Glue.compose(manifest, options, function (err, server) {
         // Create Seneca client
         server.userService.client({port : 20101});
         server.productService.client({port : 20102});
+
+        //Server static content
+        server.route({
+            method: 'GET',
+            path: '/{param}',
+            handler: {
+                directory: {
+                    path: [
+                        './html',
+                        './css',
+                        './js',
+                        './lib'
+                    ]
+                }
+            }
+        });
 
         // Add any server.route() config here
         console.log('Server running at:', server.info.uri);

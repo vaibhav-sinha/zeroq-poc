@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZeroQ Vendor Application</title>
+    <script src="../jquery-2.1.4.min.js" ></script>
+    <script src="../vendor_register.js" ></script>
+    <link rel="stylesheet" type="text/css" href="../vendor_register.css">
+</head>
+<body>
+<div class="form">
+
+    <ul class="tab-group">
+        <li class="tab active"><a href="#signup">Sign Up</a></li>
+        <li class="tab"><a href="#login">Log In</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="signup">
+            <h1>Sign Up for ZeroQ</h1>
+
+            <form action="/vendor/register" method="post">
+
+                <div class="top-row">
+                    <div class="field-wrap">
+                        <label>
+                            Name<span class="req">*</span>
+                        </label>
+                        <input type="text" name="name" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Industry<span class="req">*</span>
+                        </label>
+                        <input type="text" name="industry" required autocomplete="off"/>
+                    </div>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        Select Username<span class="req">*</span>
+                    </label>
+                    <input type="text" name="username" required autocomplete="off"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        Set A Password<span class="req">*</span>
+                    </label>
+                    <input type="password" name="password" required autocomplete="off"/>
+                </div>
+
+                <button type="submit" class="button button-block"/>Get Started</button>
+
+            </form>
+
+        </div>
+
+        <div id="login">
+            <h1>Welcome Back!</h1>
+
+            <form action="/vendor/login" method="post">
+
+                <div class="field-wrap">
+                    <label>
+                        Username<span class="req">*</span>
+                    </label>
+                    <input type="text" name="username" required autocomplete="off"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        Password<span class="req">*</span>
+                    </label>
+                    <input type="password" name="password" required autocomplete="off"/>
+                </div>
+
+
+                <button class="button button-block"/>Log In</button>
+
+            </form>
+
+        </div>
+
+    </div><!-- tab-content -->
+
+</div> <!-- /form -->
+</body>
+</html>

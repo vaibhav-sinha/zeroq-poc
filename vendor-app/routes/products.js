@@ -8,7 +8,7 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/{id}',
         config : {
-            auth: 'session-store',
+            auth: 'session',
             handler: function (request, reply) {
                 server.productService.act({role : 'product', cmd : 'get_by_id', id : request.params.id}, function(err, result) {
                     if(err) {
@@ -29,7 +29,7 @@ exports.register = function (server, options, next) {
         method: 'POST',
         path: '/search',
         config : {
-            auth: 'session-store',
+            auth: 'session',
             handler: function (request, reply) {
                 var payloadSchema = Joi.object().keys({
                     page: Joi.number().integer().required(),
@@ -68,7 +68,7 @@ exports.register = function (server, options, next) {
         method: 'POST',
         path: '/create',
         config: {
-            auth: 'session-store',
+            auth: 'session',
             handler: function (request, reply) {
                 var product = request.payload;
                 product.store_id = request.auth.credentials.id;
@@ -86,7 +86,7 @@ exports.register = function (server, options, next) {
         method: 'POST',
         path: '/update',
         config: {
-            auth: 'session-store',
+            auth: 'session',
             handler: function (request, reply) {
                 var product = request.payload;
                 product.store_id = request.auth.credentials.id;
@@ -104,7 +104,7 @@ exports.register = function (server, options, next) {
         method: 'POST',
         path: '/delete',
         config : {
-            auth: 'session-store',
+            auth: 'session',
             handler: function (request, reply) {
                 var product = request.payload;
                 product.store_id = request.auth.credentials.id;
